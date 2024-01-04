@@ -10,8 +10,8 @@ export default async function Home() {
       <form action={actions.signIn}>
         <Button
           type="submit"
-          radius="full"
-          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          radius="md"
+          className="bg-gradient-to-tr from-amber-500 to-yellow-500 text-white shadow-lg"
         >
           SignIn
         </Button>
@@ -19,8 +19,8 @@ export default async function Home() {
       <form action={actions.signOut}>
         <Button
           type="submit"
-          radius="full"
-          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+          radius="md"
+          className="bg-gradient-to-tr from-amber-500 to-yellow-500 text-white shadow-lg"
         >
           SignOut
         </Button>
