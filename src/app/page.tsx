@@ -1,14 +1,38 @@
 import { Button } from "@nextui-org/react";
+import * as actions from "@/actions";
+import { auth } from "@/auth";
+import Profile from "@/components/profile";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth();
   return (
     <div>
-      <Button
-        radius="full"
-        className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-      >
-        Click Me!
-      </Button>
+      <form action={actions.signIn}>
+        <Button
+          type="submit"
+          radius="full"
+          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+        >
+          SignIn
+        </Button>
+      </form>
+      <form action={actions.signOut}>
+        <Button
+          type="submit"
+          radius="full"
+          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+        >
+          SignOut
+        </Button>
+      </form>
+
+      {session?.user ? (
+        <div>{JSON.stringify(session.user)}</div>
+      ) : (
+        <div>Signed Out...</div>
+      )}
+
+      <Profile />
     </div>
   );
 }
